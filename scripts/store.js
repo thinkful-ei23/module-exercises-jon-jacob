@@ -12,6 +12,19 @@ const store = (function () {
   const hideCheckedItems = false;
   const searchTerm = '';
 
+  const findByID = function(id) {
+    items.find(id);  // questionable
+  };
+
+  const addItem = function(name) {
+    try {
+      Item.validateName(name);
+      this.items.push(Item.create(name));
+    } catch(error) {
+      console.log('cannot add item: ' + error.message);
+    }
+  }
+
   return {
     items: items,
     hideCheckedItems: hideCheckedItems,
