@@ -13,7 +13,8 @@ const store = (function () {
   const searchTerm = '';
 
   const findById = function(id) {
-    items.find(id);  // questionable
+    return items.find(x => x.id === id);
+    // questionable
   };
 
   const addItem = function(name) {
@@ -26,7 +27,7 @@ const store = (function () {
   };
 
   const findAndToggleChecked = function (id) {
-    const test = this.findById(id);
+    const test = findById(id);
     test.checked = !test.checked;
   };
 
