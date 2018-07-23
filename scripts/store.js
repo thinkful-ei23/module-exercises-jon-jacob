@@ -46,6 +46,15 @@ const store = (function () {
     this.items = this.items.filter(x => x.id !== id);
   };
 
+  const toggleCheckedFilter = function() {
+    this.hideCheckedItems = !this.hideCheckedItems;
+  };
+
+  const setSearchTerm = function(searchedTerm) {
+    // changes this.searchTerm to the first argument passed in
+    this.searchTerm = searchedTerm;
+  };
+
   return {
     items: items,
     hideCheckedItems: hideCheckedItems,
@@ -54,7 +63,9 @@ const store = (function () {
     addItem: addItem,
     findAndToggleChecked: findAndToggleChecked,
     findAndUpdateName: findAndUpdateName,
-    findAndDelete: findAndDelete
+    findAndDelete: findAndDelete,
+    toggleCheckedFilter: toggleCheckedFilter,
+    setSearchTerm: setSearchTerm
   }; 
 }
 ());
